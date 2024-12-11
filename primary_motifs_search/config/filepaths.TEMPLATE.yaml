@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=https://json.schemastore.org/yamllint.json
+
+filepaths:
+
+  outputdir: "relative_or_absolute_path/to/output_directory"
+  filepath_id: "relative_or_absolute_path/to/file.format"

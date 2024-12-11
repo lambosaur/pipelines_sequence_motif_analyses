@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://json.schemastore.org/yamllint.json
+
+filepaths:
+  conda_env_rsat: "../envs/conda.rsat-core.no_builds.yaml"
+  output_dir: "tests/results/"
+  logs_dir: "tests/logs/"
+  test_sequences: "tests/inputs/sequences.fasta"
+  test_sequences_bed: "tests/inputs/sequences.bed"
+  test_motifs: "tests/inputs/motifs.transfac"
+  test_patterns: "tests/inputs/patterns.txt"

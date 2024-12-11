@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://json.schemastore.org/yamllint.json
+
+rsat_dna_pattern: # The top-level key should be the name of the pipeline, so that if a Snakefile mixes configs from different experiments, we can access pipeline-specific configs.
+  defaults:
+    # These are defaults values taken for any undefined parameter in the experiments.
+    # They take over the default values defined in the Snakefile's parameter object.
+    both_strands: true
+    mask: "non-dna"
+    merge_overlapping: false
+    return_n_flanking_nt: 0
+
+  experiments:
+    unique_experiment_id: # A unique string identifier that will be used to name an output directory where results file will be stored.
+      description: "Human readable description of the experiment." # This is merely for users to understand the experiment.
+
+      sequences_filepath_id: "filepath_id" # STRING, this should correspond to a key in the `filepaths.yaml` file: `config['filepaths'][sequences_filepath_id]`.
+
+      pattern_id: "string_identifier" # Either an identifier for the defined `pattern` string, or for a filepath (tabular file with 1st column for regex-patterns and 2nd column of identifiers).
+      pattern: "regex" # OPTIONAL key-value field (takes priority over filepath query using <pattern_id>): a string of IUPAC code that may contain regular expression syntax such as "[TA]" or "N{0,10}".
+
+      params: # A set of parameters passed to `rsat dna-pattern`
+        both_strands: false # A boolean value indicating whether to search for the pattern in both strands of the sequences.
+        mask: "option" # Options: ["upper", "lower", "non-dna"], replacing such characters with "N" in the sequences.
+        merge_overlapping: false # A boolean value indicating whether to merge overlapping matches.
+        return_n_flanking_nt: 0 # An integer value indicating the number of flanking nucleotides to return.

@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://json.schemastore.org/yamllint.json
+
+rsat_matrix_scan:
+  experiments:
+    test_1:
+      description: "Test data from RSAT metazoa, here testing parsing of coordinates from sequence IDs."
+
+      sequences_filepath_id: "test_sequences"
+      transfac_motifs_id: "test_motifs"
+
+      params:
+        both_strands: true
+        lower_threshold_weight: 0.0
+        upper_threshold_pval: 0.0001
+
+    test_2:
+      description: "Test data from RSAT metazoa, here testing the use of input BED file for hits coordinates calculation."
+
+      sequences_filepath_id: "test_sequences"
+      bed_filepath_id: "test_sequences_bed"
+      transfac_motifs_id: "test_motifs"
+
+      params:
+        both_strands: true
+        lower_threshold_weight: 0.0
+        upper_threshold_pval: 0.0001

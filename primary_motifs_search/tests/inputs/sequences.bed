@@ -1,0 +1,3 @@
+chr2R	5861245	5866745	chr2R:5861245-5866745:+|dm3_flyBaseGene_CG2328-RA	.	+
+chr2R	5861245	5866745	chr2R:5861245-5866745:-(RC)|dm3_flyBaseGene_CG2328-RA	.	-
+chrTest	0	100	chrTest:0-100:+|test_sequence	.	+

@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://json.schemastore.org/yamllint.json
+
+rsat_matrix_scan: # The top-level key should be the name of the pipeline, so that if a Snakefile mixes configs from different experiments, we can access pipeline-specific configs.
+  experiments:
+    unique_experiment_id: # A unique string identifier that will be used to name an output directory where results file will be stored.
+      description: "Human readable description of the experiment." # This is merely for users to understand the experiment.
+
+      sequences_filepath_id: "filepath_id" # STRING: this should correspond to a key in the `filepaths.yaml` file: `config['filepaths'][sequences_filepath_id]`.
+      transfac_motifs_id: "filepath_id" # STRING: this should correspond to a key in the `filepaths.yaml` file: `config['filepaths'][transfac_motifs_id]`.
+      bed_filepath_id: "test_sequences_bed" # OPTIONAL[STRING]: this string should correspond to a key in the `filepaths.yaml` file: `config['filepaths'][sequences_filepath_id]`. If provided: genomic coordinates are extracted from this, using the BED6 "name" field (expected to be unique for each region) for merging with hit results.
+
+      params:
+        both_strands: true #  BOOLEAN: whether to scan both the *D*irect sequences and their *R*everse complements.
+        lower_threshold_weight: 0.0 # A FLOAT value indicating the minimum weight of the motif hit to be considered.
+        upper_threshold_pval: 0.0001 # A FLOAT value indicating the maximum Pval of the motif hit to be considered.

@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://json.schemastore.org/yamllint.json
+
+rsat_dna_pattern:
+  defaults:
+    both_strands: true
+    mask: "non-dna"
+    merge_overlapping: false
+    return_n_flanking_nt: 0
+
+  experiments:
+    test_1:
+      description: "Test data from RSAT metazoa matrix-scan, here testing 1. provided regex, and 2. parsing of coordinates from sequence IDs."
+
+      sequences_filepath_id: "test_sequences"
+
+      pattern_id: "kni"
+      pattern: "G[ACT]TCTAST"
+
+      params:
+        both_strands: true
+        mask: "non-dna"
+        merge_overlapping: false
+        return_n_flanking_nt: 0
+
+    test_2:
+      description: "Test data from RSAT metazoa matrix-scan, here testing 1. patterns from file, and 2. use of input BED file for hits coordinates calculation."
+
+      sequences_filepath_id: "test_sequences"
+      bed_filepath_id: "test_sequences_bed"
+
+      # NOTE: here this ID will be used to retrieve a filepath.
+      # The file defines two different patterns identified with the same name.
+      # This runs without error, reporting all the same hits for the two patterns
+      # in the raw results.
+      # These are deduplicated when producing the final output.
+      pattern_id: "test_patterns"
+
+      params:
+        both_strands: true
+        merge_overlapping: false
+        return_n_flanking_nt: 2
